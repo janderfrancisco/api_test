@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('discs', function (Blueprint $table) {
             $table->id();
-            $table->string('style');
-            $table->year('year_of_release');
-            $table->string('artist');
-            $table->string('name');
+            $table->string('style')->nullable();
+            $table->year('year_of_release')->nullable();
+            $table->string('artist')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

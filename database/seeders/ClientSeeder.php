@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ClientSeeder extends Seeder
 {
@@ -14,6 +16,11 @@ class ClientSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('clients')->insert([
+            'name' => Str::random(10),
+            'email' => Str::random(20).'@gmail.com',
+            'phone' => Str::random(11),
+            'doc' => mt_rand(10000000000, 99999999999)
+        ]);
     }
 }
