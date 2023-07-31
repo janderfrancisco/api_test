@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Client;
-use App\Http\Requests\StoreClientRequest;
-use App\Http\Requests\UpdateClientRequest;
+use App\Models\Disc;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreDiscRequest;
+use App\Http\Requests\UpdateDiscRequest;
 
-class ClientController extends Controller
+class DiscController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreClientRequest  $request
+     * @param  \App\Http\Requests\StoreDiscRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClientRequest $request)
+    public function store(StoreDiscRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Disc  $disc
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Disc $disc)
     {
         //
     }
@@ -53,10 +54,10 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Disc  $disc
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Disc $disc)
     {
         //
     }
@@ -64,11 +65,11 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateClientRequest  $request
-     * @param  \App\Models\Client  $client
+     * @param  \App\Http\Requests\UpdateDiscRequest  $request
+     * @param  \App\Models\Disc  $disc
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(UpdateDiscRequest $request, Disc $disc)
     {
         //
     }
@@ -76,10 +77,10 @@ class ClientController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Client  $client
+     * @param  \App\Models\Disc  $disc
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Disc $disc)
     {
         //
     }

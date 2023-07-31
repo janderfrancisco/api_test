@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Disc;
-use App\Http\Requests\StoreDiscRequest;
-use App\Http\Requests\UpdateDiscRequest;
+use App\Models\Order;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\UpdateOrderRequest;
 
-class DiscController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +32,10 @@ class DiscController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDiscRequest  $request
+     * @param  \App\Http\Requests\StoreOrderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDiscRequest $request)
+    public function store(StoreOrderRequest $request)
     {
         //
     }
@@ -42,10 +43,10 @@ class DiscController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Disc  $disc
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Disc $disc)
+    public function show(Order $order)
     {
         //
     }
@@ -53,10 +54,10 @@ class DiscController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Disc  $disc
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Disc $disc)
+    public function edit(Order $order)
     {
         //
     }
@@ -64,11 +65,11 @@ class DiscController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDiscRequest  $request
-     * @param  \App\Models\Disc  $disc
+     * @param  \App\Http\Requests\UpdateOrderRequest  $request
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDiscRequest $request, Disc $disc)
+    public function update(UpdateOrderRequest $request, Order $order)
     {
         //
     }
@@ -76,10 +77,10 @@ class DiscController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Disc  $disc
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Disc $disc)
+    public function destroy(Order $order)
     {
         //
     }

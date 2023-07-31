@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreign("client_id", 'client_id_fk')->references("id")->on("clients");
+            $table->foreign("disc_id", 'disc_id_fk')->references("id")->on("discs");
+            $table->integer("quantity");
+            $table->decimal("total_value", 10, 2);
+            $table->string("status", 20);
             $table->timestamps();
         });
     }
