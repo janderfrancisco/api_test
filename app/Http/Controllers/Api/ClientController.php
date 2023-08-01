@@ -16,18 +16,14 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::with(['orders'])->get();
+
+        return response()->json([
+                'data' => $clients,
+                'success' => true
+            ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,7 +33,16 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $client = Client::create($data);
+
+        return response()->json([
+                'data' => $client,
+                'success' => true,
+                'message' => 'Client created successfully'
+            ],
+            201);
     }
 
     /**
@@ -48,19 +53,14 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        $client->load(['orders']);
+
+        return response()->json([
+                'data' => $client,
+                'success' => true
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Client $client)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -71,7 +71,15 @@ class ClientController extends Controller
      */
     public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        $data = $request->validated();
+
+        $client->update($data);
+
+        return response()->json([
+            'data' => $client,
+            'success' => true
+        ]);
+
     }
 
     /**
@@ -82,6 +90,11 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Client deleted successfully'
+        ], 204);
     }
 }

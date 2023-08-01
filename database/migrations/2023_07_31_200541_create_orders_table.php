@@ -20,8 +20,6 @@ return new class extends Migration
             $table->unsignedBigInteger('disc_id');
             $table->foreign("disc_id", 'disc_id_fk')->references("id")->on("discs");
             $table->integer("quantity");
-            $table->decimal("total_value", 10, 2);
-            $table->string("status", 20);
             $table->timestamps();
         });
     }

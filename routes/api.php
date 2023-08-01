@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::ApiResource('client', \App\Http\Controllers\Api\ClientController::class);
+Route::ApiResource('disc', \App\Http\Controllers\Api\DiscController::class);
+Route::ApiResource('order', \App\Http\Controllers\Api\OrderController::class);

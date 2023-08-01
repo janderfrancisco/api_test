@@ -13,7 +13,7 @@ class UpdateOrderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'client_id' => 'required|exists:clients,id',
+            'disc_id' => 'required|exists:discs,id',
+            'quantity' => 'required|numeric',
         ];
     }
 }

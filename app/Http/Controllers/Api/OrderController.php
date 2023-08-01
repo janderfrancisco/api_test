@@ -10,60 +10,59 @@ use App\Http\Requests\UpdateOrderRequest;
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * List all orders.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $orders = Order::with(['client', 'disc'])->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $orders
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a new order.
      *
      * @param  \App\Http\Requests\StoreOrderRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $order = Order::create($data);
+
+        return response()->json([
+            'success' => true,
+            'data' => $order,
+            'message' => 'Order created successfully'
+        ]);
     }
 
     /**
-     * Display the specified resource.
+     * Display the order
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
     {
-        //
+        $order->load(['client', 'disc']);
+
+        return response()->json([
+            'success' => true,
+            'data' => $order
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Update the order.
      *
      * @param  \App\Http\Requests\UpdateOrderRequest  $request
      * @param  \App\Models\Order  $order
@@ -71,17 +70,15 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        $data = $request->validated();
+
+        $order->update($data);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Order updated successfully'
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
+
 }

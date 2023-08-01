@@ -17,7 +17,9 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'client_id' => \App\Models\Client::factory(),
+            'disc_id' => \App\Models\Disc::factory(),
+            'quantity' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

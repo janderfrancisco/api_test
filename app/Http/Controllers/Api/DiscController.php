@@ -16,17 +16,12 @@ class DiscController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $discs = Disc::get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json([
+            'success' => true,
+            'data' => $discs
+        ]);
     }
 
     /**
@@ -37,7 +32,14 @@ class DiscController extends Controller
      */
     public function store(StoreDiscRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        Disc::create($data);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Disc created successfully'
+        ]);
     }
 
     /**
@@ -48,18 +50,10 @@ class DiscController extends Controller
      */
     public function show(Disc $disc)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Disc  $disc
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Disc $disc)
-    {
-        //
+        return response()->json([
+            'success' => true,
+            'data' => $disc
+        ]);
     }
 
     /**
@@ -71,7 +65,15 @@ class DiscController extends Controller
      */
     public function update(UpdateDiscRequest $request, Disc $disc)
     {
-        //
+        $data = $request->validated();
+
+        $disc->update($data);
+
+        return response()->json([
+            'data' => $disc,
+            'success' => true,
+            'message' => 'Disc updated successfully'
+        ]);
     }
 
     /**
@@ -82,6 +84,11 @@ class DiscController extends Controller
      */
     public function destroy(Disc $disc)
     {
-        //
+        $disc->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Disc deleted successfully'
+        ]);
     }
 }
