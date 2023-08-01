@@ -5,6 +5,11 @@ Api desenvolvida utilizando PHP e Laravel Framework com Laravel Octane.
 O motivo da utilização do Octane é que ele adiciona a aplicação em memória após o primeiro uso, fazendo assim com as próximas requisições sejam mais rápidas.
 
 
+--- 
+### Documentação da api
+[https://documenter.getpostman.com/view/928811/2s9XxvTFE9#48b94f22-e2d9-42d9-9dac-40e8fa2f6dd4](https://documenter.getpostman.com/view/928811/2s9XxvTFE9#48b94f22-e2d9-42d9-9dac-40e8fa2f6dd4)
+
+
 
 ### Passo a passo para subir a aplicação
 Clone este repositório
@@ -119,10 +124,5 @@ Esse loadbalance não está no disponivel mais, por questão de custo. Fiz os te
 ### Estrutura da aplicação
 
 <img src="https://raw.githubusercontent.com/janderfrancisco/api_test/main/public/assets/estrutura.png">
-
---- 
-### Documentação da api
-[https://documenter.getpostman.com/view/928811/2s9XxvTFE9#48b94f22-e2d9-42d9-9dac-40e8fa2f6dd4](https://documenter.getpostman.com/view/928811/2s9XxvTFE9#48b94f22-e2d9-42d9-9dac-40e8fa2f6dd4)
-
 
 
